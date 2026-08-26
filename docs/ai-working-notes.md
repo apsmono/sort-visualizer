@@ -22,3 +22,30 @@ this repo. Never overwrite an entry — add to it or add a new one below.
   in place. Stage 0 repurposes `index.css` as the global stylesheet; the
   template's hero image and svg assets under `src/assets/` are unused and can be
   deleted.
+
+## Known environment quirk (planner session only)
+
+The scaffold was authored over a sandboxed mount where `unlink` was denied.
+Consequences visible in the repo, none of which reproduce on a normal macOS
+checkout:
+
+- `npm install` printed `npm warn cleanup ... EPERM rmdir` for optional
+  platform binaries under `node_modules/@oxlint` and `lightningcss-*`. The
+  install itself succeeded. Extra `lightningcss-<other-platform>` folders may be
+  present; a fresh `npm ci` on the Mac drops them.
+- `vite build` failed at `vite:prepare-out-dir` because it could not empty
+  `dist/`. `tsc -b` passed; the failure was the mount, not the code. Verified by
+  running `tsc -b --noEmit` and `oxlint` standalone — both clean.
+- Git left stale `.lock` and `tmp_obj_*` files that could not be unlinked; they
+  were moved aside into `.git/_stale/`. **Delete `.git/_stale/` on first
+  checkout** — it is inert but pointless.
+- The initial branch is `master`. Rename it: `git branch -m main`.
+
+First thing to run on the Mac:
+
+```bash
+cd ~/Developer/projects/sort-visualizer
+rm -rf .git/_stale dist
+git branch -m main
+npm ci && npm run typecheck && npm run lint && npm run build
+```
