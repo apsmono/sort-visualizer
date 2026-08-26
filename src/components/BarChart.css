@@ -1,0 +1,53 @@
+.bar-chart {
+  --bar-gap: var(--space-1);
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  gap: var(--bar-gap);
+  box-sizing: border-box;
+}
+
+.bar-chart--dense {
+  --bar-gap: 0px;
+}
+
+.bar {
+  flex: 1;
+  background-color: var(--bar-idle);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: height var(--bar-transition) linear;
+  box-sizing: border-box;
+}
+
+.bar-chart--dense .bar {
+  border-radius: 0;
+}
+
+/* State Modifier Classes */
+
+.bar--writing {
+  background-color: var(--bar-write) !important;
+}
+
+.bar--comparing {
+  background-color: var(--bar-compare) !important;
+}
+
+.bar--pivot {
+  background-color: var(--bar-pivot) !important;
+}
+
+.bar--sorted {
+  background-color: var(--bar-sorted) !important;
+}
+
+.bar--in-range {
+  /* Remain at base style or highlight with default bar-idle color */
+  background-color: var(--bar-idle);
+}
+
+.bar--out-of-range {
+  background-color: var(--bar-out-of-range) !important;
+  opacity: 0.35;
+}
