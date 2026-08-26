@@ -4,24 +4,23 @@
 
 ## Current Phase
 
-**Phase 1 — Implementation.** Scaffold and specification are complete; no
-feature code has been written yet.
+Phase 2 — Verification & Completed. All seven implementation stages have been built, integrated, and verified green.
 
 ## Active Stage
 
-**Stage 0 — Foundation** (see `.agents/handoff/001-build-plan.md`)
+None (All stages successfully implemented and verified).
 
 ## Stage Status
 
 | Stage | Name | Status |
 | --- | --- | --- |
-| 0 | Foundation: tokens, globals, app shell | not started |
-| 1 | Array generation + player reducer + tests | not started |
-| 2 | Six algorithms + shared test suite | not started |
-| 3 | Bar rendering | not started |
-| 4 | Playback controls + wiring | not started |
-| 5 | Stats, complexity card, narration | not started |
-| 6 | Accessibility, polish, docs | not started |
+| 0 | Foundation: tokens, globals, app shell | completed |
+| 1 | Array generation + player reducer + tests | completed |
+| 2 | Six algorithms + shared test suite | completed |
+| 3 | Bar rendering | completed |
+| 4 | Playback controls + wiring | completed |
+| 5 | Stats, complexity card, narration | completed |
+| 6 | Accessibility, polish, docs | completed |
 
 ## Completed
 

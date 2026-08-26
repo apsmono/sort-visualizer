@@ -49,3 +49,11 @@ rm -rf .git/_stale dist
 git branch -m main
 npm ci && npm run typecheck && npm run lint && npm run build
 ```
+
+## Visualizer Implementation Gotchas
+
+- **Oxlint ref access restrictions:** React ref updates (e.g. `stateRef.current = state`) directly inside the render body trigger oxlint React warnings. We resolved this by wrapping current ref updates inside an un-dependency-arrayed `useEffect` that runs on every render, keeping the render function pure.
+- **Oxlint set-state-in-effect warning:** Setting state inside `useEffect` (like updating `array` inside `useEffect` watching size/distribution/seed) triggers cascading render warnings. We resolved this by refactoring state mutations to occur inside the corresponding event handlers, ensuring faster and more predictable state flows.
+- **Double write unapplying reverse order:** A single step writing the same index twice (e.g. Lomuto partitions or swaps) must be unapplied in reverse order (`writes.length - 1` down to `0`) using `prev` values to accurately restore the array.
+- **Lomuto Partition with duplicates:** Lomuto partitions can have adversarial performance on arrays with few unique values, making it a great teaching visualization case for O(n^2) quicksort complexity.
+- **Tabular Numerics in Stats:** To prevent numbers from jittering in the stats panel during playback, we applied `font-variant-numeric: tabular-nums` to ensure monospaced numerical spacing.
