@@ -9,6 +9,9 @@ import BarChart from './components/BarChart.tsx';
 import ControlBar from './components/ControlBar.tsx';
 import AlgorithmPicker from './components/AlgorithmPicker.tsx';
 import ArrayControls from './components/ArrayControls.tsx';
+import StatsPanel from './components/StatsPanel.tsx';
+import ComplexityCard from './components/ComplexityCard.tsx';
+import Narration from './components/Narration.tsx';
 
 import './App.css';
 
@@ -59,6 +62,13 @@ export default function App() {
     seek,
     reset,
   } = usePlayer(array, steps);
+
+  const currentStep = useMemo(() => {
+    if (stats.stepIndex > 0 && stats.stepIndex <= steps.length) {
+      return steps[stats.stepIndex - 1];
+    }
+    return undefined;
+  }, [stats.stepIndex, steps]);
 
   const maxVal = useMemo(
     () => (array.length > 0 ? Math.max(...array) : 100),
@@ -129,9 +139,7 @@ export default function App() {
       </section>
 
       <section className="app__controls" aria-label="Player Controls">
-        <div className="app__narration-strip" aria-live="polite">
-          <p className="app__narration-text">{frame.note || 'Click play to start animating!'}</p>
-        </div>
+        <Narration step={currentStep} />
         <ControlBar
           status={status}
           cursor={frame.array ? stats.stepIndex : 0}
@@ -163,8 +171,8 @@ export default function App() {
           disabled={isControlsDisabled}
         />
 
-        <div className="placeholder-box">Stats Panel Area</div>
-        <div className="placeholder-box">Complexity Card Area</div>
+        <StatsPanel stats={stats} />
+        <ComplexityCard meta={ALGORITHMS[algorithmId].meta} />
       </aside>
     </main>
   );

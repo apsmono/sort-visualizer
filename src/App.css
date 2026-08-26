@@ -87,24 +87,3 @@
   }
 }
 
-.app__narration-strip {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 38px;
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin-bottom: var(--space-3);
-  padding: var(--space-1) var(--space-3);
-  box-sizing: border-box;
-}
-
-.app__narration-text {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--bar-compare);
-  text-align: center;
-}
