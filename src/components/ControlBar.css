@@ -1,0 +1,128 @@
+.control-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.control-bar__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.control-btn {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: var(--space-2);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+  background-color: var(--border);
+  color: var(--text);
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.control-btn--play {
+  background-color: var(--bar-idle);
+  border-color: var(--bar-idle);
+  color: #fff;
+  padding: var(--space-3);
+  border-radius: 50%;
+}
+
+.control-btn--play:hover:not(:disabled) {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.control-bar__sliders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+@media (max-width: 600px) {
+  .control-bar__sliders {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+.control-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.control-slider__label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.control-slider__input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: var(--radius);
+  background: var(--border);
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bar-idle);
+  transition: transform 0.1s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bar-idle);
+  border: none;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+}
+
+.control-slider__value {
+  font-size: 0.85rem;
+  min-width: 65px;
+  text-align: right;
+  color: var(--text);
+  font-family: var(--font-mono);
+}

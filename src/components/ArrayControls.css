@@ -1,0 +1,129 @@
+.array-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.array-controls__row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.array-controls__size-slider {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.array-controls__label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.array-controls__slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.array-controls__size-value {
+  font-size: 0.85rem;
+  min-width: 32px;
+  text-align: right;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.shuffle-btn {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  height: 38px;
+}
+
+.shuffle-btn:hover:not(:disabled) {
+  background-color: var(--border);
+}
+
+.shuffle-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.array-controls__distributions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.dist-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .dist-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dist-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-1);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.dist-option:hover:not(.dist-option--disabled) {
+  border-color: var(--bar-idle);
+  background-color: rgba(59, 130, 246, 0.02);
+}
+
+.dist-option--selected {
+  border-color: var(--bar-idle);
+  background-color: rgba(59, 130, 246, 0.05);
+  color: var(--bar-idle);
+  font-weight: 500;
+}
+
+.dist-option--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dist-option__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.dist-option__label {
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
+}
