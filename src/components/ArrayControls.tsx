@@ -43,6 +43,7 @@ export default function ArrayControls({
               onChange={(e) => onSizeChange(parseInt(e.target.value, 10))}
               disabled={disabled}
               className="slider"
+              aria-valuetext={`${size} bars`}
             />
             <span className="array-controls__size-value text-mono">{size}</span>
           </div>
