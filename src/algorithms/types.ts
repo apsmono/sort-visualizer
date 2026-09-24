@@ -13,12 +13,7 @@
  */
 
 export type AlgorithmId =
-  | 'bubble'
-  | 'selection'
-  | 'insertion'
-  | 'merge'
-  | 'quick'
-  | 'heap';
+  'bubble' | 'selection' | 'insertion' | 'merge' | 'quick' | 'heap';
 
 /** A single reversible mutation of one array cell. */
 export interface Write {

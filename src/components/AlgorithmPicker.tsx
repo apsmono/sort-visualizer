@@ -16,7 +16,11 @@ export default function AlgorithmPicker({
   return (
     <div className="algorithm-picker">
       <span className="algorithm-picker__title">Algorithms</span>
-      <div className="algorithm-picker__group" role="radiogroup" aria-label="Select sorting algorithm">
+      <div
+        className="algorithm-picker__group"
+        role="radiogroup"
+        aria-label="Select sorting algorithm"
+      >
         {ALGORITHM_LIST.map((alg) => {
           const isSelected = selectedId === alg.meta.id;
           return (

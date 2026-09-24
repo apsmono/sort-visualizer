@@ -4,7 +4,7 @@ import { generateArray } from '../lib/generateArray.ts';
 
 export function runToCompletion(
   alg: Algorithm,
-  input: readonly number[]
+  input: readonly number[],
 ): {
   steps: SortStep[];
   final: number[];

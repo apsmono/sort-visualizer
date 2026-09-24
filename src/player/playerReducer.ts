@@ -19,10 +19,7 @@ export const initialPlayerState: PlayerState = {
   },
 };
 
-export function playerReducer(
-  state: PlayerState,
-  action: PlayerAction
-): PlayerState {
+export function playerReducer(state: PlayerState, action: PlayerAction): PlayerState {
   switch (action.type) {
     case 'load': {
       const { array, steps } = action;
@@ -109,7 +106,7 @@ export function playerReducer(
 
       const targetCursor = Math.min(state.steps.length, state.cursor + count);
       const newArray = [...state.array];
-      
+
       let additionalComparisons = 0;
       let additionalWrites = 0;
       const newSorted = new Set<number>(state.sorted);
@@ -215,7 +212,8 @@ export function playerReducer(
         }
       }
 
-      const lastAppliedStep = targetCursor > 0 ? state.steps[targetCursor - 1] : undefined;
+      const lastAppliedStep =
+        targetCursor > 0 ? state.steps[targetCursor - 1] : undefined;
 
       return {
         ...state,

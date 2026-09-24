@@ -65,7 +65,11 @@ export default function ArrayControls({
 
       <div className="array-controls__distributions">
         <span className="array-controls__label">Distribution</span>
-        <div className="dist-group" role="radiogroup" aria-label="Select array distribution type">
+        <div
+          className="dist-group"
+          role="radiogroup"
+          aria-label="Select array distribution type"
+        >
           {distributions.map((dist) => {
             const isSelected = distribution === dist.value;
             return (

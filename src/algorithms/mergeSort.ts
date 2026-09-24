@@ -14,8 +14,7 @@ const mergeSort: Algorithm = {
     inPlace: false,
     summary:
       'Merge Sort is a divide-and-conquer algorithm. It recursively divides the array into halves, sorts each half, and then merges the sorted halves back together.',
-    invariant:
-      'After merging sub-arrays, each merged segment is internally sorted.',
+    invariant: 'After merging sub-arrays, each merged segment is internally sorted.',
   },
   run: function* (input) {
     const arr = [...input];
@@ -28,7 +27,7 @@ const mergeSort: Algorithm = {
     function* merge(
       lo: number,
       mid: number,
-      hi: number
+      hi: number,
     ): Generator<SortStep, void, undefined> {
       yield {
         kind: 'set-range',
@@ -77,10 +76,7 @@ const mergeSort: Algorithm = {
       }
     }
 
-    function* sort(
-      lo: number,
-      hi: number
-    ): Generator<SortStep, void, undefined> {
+    function* sort(lo: number, hi: number): Generator<SortStep, void, undefined> {
       if (lo >= hi) return;
       const mid = Math.floor((lo + hi) / 2);
       yield* sort(lo, mid);

@@ -5,7 +5,7 @@ import { initialPlayerState, playerReducer } from './playerReducer.ts';
 
 export function usePlayer(
   array: readonly number[],
-  steps: readonly SortStep[]
+  steps: readonly SortStep[],
 ): {
   frame: FrameState;
   stats: SortStats;

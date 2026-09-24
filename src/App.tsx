@@ -24,7 +24,7 @@ export default function App() {
 
   // Regenerate array when parameters change
   const [array, setArray] = useState(() =>
-    generateArray({ size: arraySize, distribution, seed })
+    generateArray({ size: arraySize, distribution, seed }),
   );
 
   const handleSizeChange = (newSize: number) => {
@@ -46,7 +46,7 @@ export default function App() {
   // Precompute steps - MUST memoize this
   const steps = useMemo(
     () => [...ALGORITHMS[algorithmId].run(array)],
-    [array, algorithmId]
+    [array, algorithmId],
   );
 
   const {
@@ -70,10 +70,7 @@ export default function App() {
     return undefined;
   }, [stats.stepIndex, steps]);
 
-  const maxVal = useMemo(
-    () => (array.length > 0 ? Math.max(...array) : 100),
-    [array]
-  );
+  const maxVal = useMemo(() => (array.length > 0 ? Math.max(...array) : 100), [array]);
 
   const isControlsDisabled = status === 'playing';
 
@@ -123,14 +120,25 @@ export default function App() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [status, stepForward, stepBack, reset, seek, stats.stepIndex, stats.totalSteps, play, pause]);
+  }, [
+    status,
+    stepForward,
+    stepBack,
+    reset,
+    seek,
+    stats.stepIndex,
+    stats.totalSteps,
+    play,
+    pause,
+  ]);
 
   return (
     <main className="app">
       <header className="app__header">
         <h1 className="app__title">Sorting Algorithm Visualizer</h1>
         <p className="app__subtitle">
-          An interactive tool for exploring and understanding classic sorting algorithms.
+          An interactive tool for exploring and understanding classic sorting
+          algorithms.
         </p>
       </header>
 

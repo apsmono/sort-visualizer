@@ -14,8 +14,7 @@ const bubbleSort: Algorithm = {
     inPlace: true,
     summary:
       'Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This pass is repeated until the list is sorted.',
-    invariant:
-      'After pass k, the largest k elements are in their final positions.',
+    invariant: 'After pass k, the largest k elements are in their final positions.',
   },
   run: function* (input) {
     const arr = [...input];

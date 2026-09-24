@@ -1,9 +1,9 @@
 .app {
   display: grid;
   grid-template-areas:
-    "header header"
-    "stage  panels"
-    "controls panels";
+    'header header'
+    'stage  panels'
+    'controls panels';
   grid-template-columns: 1fr 320px;
   grid-template-rows: auto 1fr auto;
   gap: var(--space-4);
@@ -78,12 +78,11 @@
 @media (max-width: 900px) {
   .app {
     grid-template-areas:
-      "header"
-      "stage"
-      "controls"
-      "panels";
+      'header'
+      'stage'
+      'controls'
+      'panels';
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto;
   }
 }
-

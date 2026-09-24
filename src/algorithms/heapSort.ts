@@ -27,7 +27,7 @@ const heapSort: Algorithm = {
 
     function* siftDown(
       start: number,
-      end: number
+      end: number,
     ): Generator<SortStep, void, undefined> {
       yield {
         kind: 'set-range',

@@ -14,8 +14,7 @@ const selectionSort: Algorithm = {
     inPlace: true,
     summary:
       'Selection Sort divides the input list into two parts: a sorted sublist at the left and an unsorted sublist at the right. It repeatedly finds the smallest element from the unsorted sublist and swaps it with the leftmost unsorted element.',
-    invariant:
-      'After pass k, the smallest k elements are in their final positions.',
+    invariant: 'After pass k, the smallest k elements are in their final positions.',
   },
   run: function* (input) {
     const arr = [...input];

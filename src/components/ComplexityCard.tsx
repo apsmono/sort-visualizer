@@ -21,7 +21,9 @@ export default function ComplexityCard({ meta }: ComplexityCardProps) {
           </div>
           <div className="complexity-row">
             <span className="complexity-row__label">Average Case</span>
-            <span className="complexity-row__value text-mono">{complexity.average}</span>
+            <span className="complexity-row__value text-mono">
+              {complexity.average}
+            </span>
           </div>
           <div className="complexity-row">
             <span className="complexity-row__label">Worst Case</span>

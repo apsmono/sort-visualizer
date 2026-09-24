@@ -144,9 +144,7 @@ export default function ControlBar({
               className="slider"
               aria-valuetext={`${speed} steps per second`}
             />
-            <span className="control-slider__value text-mono">
-              {speed}/s
-            </span>
+            <span className="control-slider__value text-mono">{speed}/s</span>
           </div>
         </div>
       </div>
